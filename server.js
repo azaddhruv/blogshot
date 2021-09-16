@@ -12,10 +12,7 @@ const { isLoggedIn, validateBlog } = require('./middleware.js')
 const blogRoutes = require('./routes/blogs.js')
 const mongoSanitize = require('express-mongo-sanitize')
 const MongoStore = require('connect-mongo')
-const dotenv = require('dotenv')
-
-dotenv.config()
-const port = process.env.PORT || 5000
+const dotenv = require('dotenv').config()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -76,6 +73,8 @@ app.use((err, req, res, next) => {
   res.status(statusCode).send(err.message)
 })
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log(`started listining on port ${this.address().port}`)
+const port = process.env.PORT || 8080
+
+app.listen(port, () => {
+  console.log(`started listining on port ${port}`)
 })
