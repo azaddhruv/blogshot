@@ -76,5 +76,5 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 8080
 
 app.listen(port, () => {
-  console.log(`started listining on port ${port}`)
+  console.log(`started blogshot on port ${port}`)
 })
