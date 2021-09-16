@@ -4,4 +4,4 @@ const catchAsync = (func) => {
   }
 }
 
-export default catchAsync
+module.exports = catchAsync

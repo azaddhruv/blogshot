@@ -1,18 +1,18 @@
-import express from 'express'
+const express = require('express')
 const app = express()
-import path from 'path'
-import mongoose from 'mongoose'
-import Blog from './models/blog.js'
-import ExpressError from './utils/ExpressError.js'
-import catchAsync from './utils/catchAsync.js'
-import session from 'express-session'
-import Admin from './models/admin.js'
-import bcrypt from 'bcrypt'
-import { isLoggedIn, validateBlog } from './middleware.js'
-import blogRoutes from './routes/blogs.js'
-import mongoSanitize from 'express-mongo-sanitize'
-import MongoStore from 'connect-mongo'
-import dotenv from 'dotenv'
+const path = require('path')
+const mongoose = require('mongoose')
+const Blog = require('./models/blog.js')
+const ExpressError = require('./utils/ExpressError.js')
+const catchAsync = require('./utils/catchAsync.js')
+const session = require('express-session')
+const Admin = require('./models/admin.js')
+const bcrypt = require('bcrypt')
+const { isLoggedIn, validateBlog } = require('./middleware.js')
+const blogRoutes = require('./routes/blogs.js')
+const mongoSanitize = require('express-mongo-sanitize')
+const MongoStore = require('connect-mongo')
+const dotenv = require('dotenv')
 
 dotenv.config()
 const port = process.env.PORT || 5000
@@ -62,7 +62,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
 
   app.get('*', (req, res) =>
-    res.sendFile(path.resolve(import.meta.url, 'client', 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   )
 }
 

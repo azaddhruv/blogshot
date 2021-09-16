@@ -1,10 +1,10 @@
-import express from 'express'
+const express = require('express')
 const router = express.Router()
-import catchAsync from '../utils/catchAsync.js'
-import { isLoggedIn, validateBlog } from '../middleware.js'
-import Blog from '../models/blog.js'
-import Admin from '../models/admin.js'
-import bcrypt from 'bcrypt'
+const catchAsync = require('../utils/catchAsync.js')
+const { isLoggedIn, validateBlog } = require('../middleware.js')
+const Blog = require('../models/blog.js')
+const Admin = require('../models/admin.js')
+const bcrypt = require('bcrypt')
 
 router.get(
   '/',
@@ -100,4 +100,4 @@ router.post(
   })
 )
 
-export default router
+module.exports = router
