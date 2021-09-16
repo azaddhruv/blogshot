@@ -76,6 +76,6 @@ app.use((err, req, res, next) => {
   res.status(statusCode).send(err.message)
 })
 
-app.listen(port, () => {
-  console.log(`started listining on port ${port}`)
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`started listining on port ${this.address().port}`)
 })
