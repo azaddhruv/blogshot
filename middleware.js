@@ -1,5 +1,5 @@
-import { blogSchema } from './schemas.js'
-import ExpressError from './utils/ExpressError.js'
+const { blogSchema } = require('./schemas.js')
+const ExpressError = require('./utils/ExpressError.js')
 
 module.exports.isLoggedIn = (req, res, next) => {
   if (!req.session.admin_id) {
