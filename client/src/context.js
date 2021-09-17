@@ -22,6 +22,7 @@ const AppProvider = ({ children }) => {
         method: 'GET',
         url: '/blog',
       })
+      console.log(res)
       if (res.data.blog) {
         dispatch({ type: 'GET_BLOGS', payload: res.data.blog })
       }
